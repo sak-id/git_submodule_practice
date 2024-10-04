@@ -1,0 +1,3 @@
+[submodule "skills-introduction-to-github"]
+	path = skills-introduction-to-github
+	url = git@github.com:sak-id/skills-introduction-to-github.git
