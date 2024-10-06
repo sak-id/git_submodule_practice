@@ -70,5 +70,19 @@ audio
 origin
 
 % git subtree add --prefix=subtree_test --squash audio main
+# 1回目はコミットしていない変化があったため失敗
+fatal: working tree has modifications.  Cannot add.
+# add/commitしてから再実行
+git fetch audio main
+remote: Enumerating objects: 23, done.
+remote: Counting objects: 100% (23/23), done.
+remote: Compressing objects: 100% (13/13), done.
+remote: Total 23 (delta 8), reused 21 (delta 7), pack-reused 0 (from 0)
+Unpacking objects: 100% (23/23), 8.69 KiB | 404.00 KiB/s, done.
+From github.com:sak-id/audio-fromexamples
+ * branch            main       -> FETCH_HEAD
+ * [new branch]      main       -> audio/main
+Added dir 'subtree_test'
+
 
 ```
