@@ -16,7 +16,7 @@ git push -u origin main
 #### git submodule
 ```
 # submoduleの追加。.gitmodulesが作成される
-git@github.com:sak-id/skills-introduction-to-github.git
+git submodule add git@github.com:sak-id/skills-introduction-to-github.git
 
 % git diff --cached skills-introduction-to-github
 diff --git a/skills-introduction-to-github b/skills-introduction-to-github
@@ -130,3 +130,25 @@ rm 'skills-introduction-to-github'
 ```
 
 これで完全にsubmoduleが消える
+
+#### git submoduleの中身を別ディレクトリに移す
+submodule内で変更してしまった際、deinitだと変更ごと消えてしまい困った
+```
+git submodule add git@github.com:sak-id/skills-introduction-to-github.git
+fatal: A git directory for 'skills-introduction-to-github' is found locally with remote(s):
+  origin        git@github.com:sak-id/skills-introduction-to-github.git
+If you want to reuse this local git directory instead of cloning again from
+  git@github.com:sak-id/skills-introduction-to-github.git
+use the '--force' option. If the local git directory is not the correct repo
+or you are unsure what this means choose another name with the '--name' option.
+
+% git submodule add git@github.com:sak-id/skills-introduction-to-github.git submodule
+Cloning into '/Users/sakiieda/Documents/progs/git_submodule_practice/submodule'...
+remote: Enumerating objects: 84, done.
+remote: Counting objects: 100% (84/84), done.
+remote: Compressing objects: 100% (66/66), done.
+remote: Total 84 (delta 25), reused 53 (delta 10), pack-reused 0 (from 0)
+Receiving objects: 100% (84/84), 831.15 KiB | 1.20 MiB/s, done.
+Resolving deltas: 100% (25/25), done.
+
+% 
