@@ -151,4 +151,45 @@ remote: Total 84 (delta 25), reused 53 (delta 10), pack-reused 0 (from 0)
 Receiving objects: 100% (84/84), 831.15 KiB | 1.20 MiB/s, done.
 Resolving deltas: 100% (25/25), done.
 
-% 
+## 新たなファイルをsubmodule内で新規作成した
+
+cp -r submodule/* submodule_deplicate
+
+% git add .
+% git commit -m "copy files inside subm
+odule"
+[main ddc6fd5] copy files inside submodule
+ 21 files changed, 101 insertions(+), 2 deletions(-)
+ create mode 160000 submodule
+ create mode 100644 submodule_deplicate/LICENSE
+ create mode 100644 submodule_deplicate/Profile.md
+ create mode 100644 submodule_deplicate/README.md
+ create mode 100644 submodule_deplicate/add_extra_file.txt
+ create mode 100644 submodule_deplicate/images/Actions-to-step-4.png
+ create mode 100644 submodule_deplicate/images/Green-merge-pull-request.png
+ create mode 100644 submodule_deplicate/images/Pull-request-description.png
+ create mode 100644 submodule_deplicate/images/code-tab.png
+ create mode 100644 submodule_deplicate/images/commit-full-screen.png
+ create mode 100644 submodule_deplicate/images/compare-and-pull-request.png
+ create mode 100644 submodule_deplicate/images/create-branch-button.png
+ create mode 100644 submodule_deplicate/images/create-new-file.png
+ create mode 100644 submodule_deplicate/images/create-new-repository.png
+ create mode 100644 submodule_deplicate/images/delete-branch.png
+ create mode 100644 submodule_deplicate/images/main-branch-dropdown.png
+ create mode 100644 submodule_deplicate/images/my-profile-file.png
+ create mode 100644 submodule_deplicate/images/profile-readme-example.png
+ create mode 100644 submodule_deplicate/images/pull-request-branches.png
+
+% git submodule deinit -f submodule
+Cleared directory 'submodule'
+Submodule 'submodule' (git@github.com:sak-id/skills-introduction-to-github.git) unregistered for path 'submodule'
+
+% git rm submodule
+rm 'submodule'
+
+% git commit -am "submodule deinit"
+[main 860e43d] submodule deinit
+ 2 files changed, 4 deletions(-)
+ delete mode 160000 submodule
+```
+こうすることで、誤ってsubmodule内で変更してしまったファイルをそのまま持ってくることができる
