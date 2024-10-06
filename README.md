@@ -83,6 +83,50 @@ From github.com:sak-id/audio-fromexamples
  * branch            main       -> FETCH_HEAD
  * [new branch]      main       -> audio/main
 Added dir 'subtree_test'
-
-
 ```
+
+#### git subtreeの中身を変更
+subtree内の[README.md](subtree_test/README.md)に変更を加え、全体のリポジトリでpush
+```
+% git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   subtree_test/README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+% git commit -am "modification inside subtree"
+[main 24327e0] modification inside subtree
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+% git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 374 bytes | 374.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To github.com:sak-id/git_submodule_practice.git
+   633296f..24327e0  main -> main
+```
+このリポジトリ内は変更され、元のリポジトリは変更されないことを確認
+
+#### git submoduleの削除
+https://zenn.dev/mtmatma/articles/6c2c8be8f8a051 を参考にした
+```
+% git submodule
+ 85167ced12b4ad9aac66320cc6e65093022b4870 skills-introduction-to-github (heads/main)
+
+% git submodule deinit -f 
+skills-introduction-to-github 
+Cleared directory 'skills-introduction-to-github'
+Submodule 'skills-introduction-to-github' (git@github.com:sak-id/skills-introduction-to-github.git) unregistered for path 'skills-introduction-to-github'
+
+% git rm skills-introduction-to-github
+rm 'skills-introduction-to-github'
+```
+
+これで完全にsubmoduleが消える
