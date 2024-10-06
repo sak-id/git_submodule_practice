@@ -18,3 +18,5 @@ https://github.com/huggingface/transformers/tree/main/examples/pytorch/audio-cla
    
 gpu07で実行中
 extracting data filesに時間がかかってる 
+
+subtree内で追記
